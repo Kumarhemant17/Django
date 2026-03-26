@@ -4,14 +4,19 @@
     <title>Home</title>
   </head>
   <body>
+    <h2>Students (age > 22)</h2>
     {% for student in students %}
-    <p>{{student.name}} - {{student.age}}</p>
+    <p>
+      {{student.name}} - {{student.age}} - {{student.email}} -
+      {{student.created_at}}
+    </p>
     {% endfor %}
-    <h2>Total Students:{{students_count}}</h2>
-    <p>{{students.name}}</p>
-    <p>{{students.age}}</p>
-    <p>students.email</p>
-    <p>{{students.created_at}}</p>
-    <h3>student_name:{{student2}}</h3>
+
+    <h2>Total Students: {{students_count}}</h2>
+
+    <h3>All Students Ordered by Name</h3>
+    {% for s in student_name %}
+    <p>{{s.name}}</p>
+    {% endfor %}
   </body>
 </html>
