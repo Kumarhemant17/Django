@@ -1,11 +1,13 @@
 from django.shortcuts import render
 from .models import Student
 
-# Create your views here.
-# Views are functions or classes that handle requests and return responses
 def home(request):
-    students=Student.objects.filter(age__gt=22).order_by('name')
-    students1=Student.objects.count()
-    return render(request,'home/index.html', {'students':students,
-    'students_count': students1
+    students = Student.objects.filter(age__gt=22).order_by('name')
+    students_count = Student.objects.count()
+    student_name = Student.objects.order_by('name')
+
+    return render(request, 'home/index.html', {
+        'students': students,
+        'students_count': students_count,
+        'student_name': student_name
     })
