@@ -6,6 +6,7 @@ from .models import Student
 def home(request):
     students=Student.objects.filter(age__gt=22).order_by('name')
     students1=Student.objects.count()
+    student2=Student.objects.order_by('__name__')
     return render(request,'home/index.html', {'students':students,
-    'students_count': students1
+    'students_count': students1, 'student_name':student2
     })
